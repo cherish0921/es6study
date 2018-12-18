@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的解构赋值</title>
+</head>
+<body>
+    <script>
+        let [head,...body]=[1,2,3,4];
+        console.log(`解构前数据：${JSON.stringify([1,2,3,4])}`);
+        console.log('解构后的数据：');
+        console.log(`head:${head}`);  
+        console.log(`body:${JSON.stringify(body)}`);    
+        let [bar,foo] = [1];
+        console.log('如果解构不成功，变量的值就等于undefined');
+        console.log(`解构前数据：${JSON.stringify([1])}`);
+        console.log('解构后的数据：');
+        console.log(`bar:${bar}`);  
+        console.log(`foo:${foo}`);  
+        console.log('*******************');
+        console.log(`某种数据结构具有Iterator接口，都可以采用数组形式的解构赋值....`);
+        function* fibs(){
+            var a=0,b=1;
+            while(true){
+                yield a;
+                [a,b] = [b,a+b];
+            }
+        }
+        var [first,second,third,fifth,sixth] = fibs();
+        console.log(`解构出的first：${sixth}`);
+        console.log(`某种数据结构具有Iterator接口，都可以采用数组形式的解构赋值....`);
+    </script>
+</body>
+</html>
